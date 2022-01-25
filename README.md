@@ -22,7 +22,7 @@ To download program, use:
 Enter the folder, and run:
 `python3 main.py`
 
-Default password is `1`, and can be changed once logged in.
+Default password is `passman`, and can be changed once logged in (`6. Extra -> 4. Change master password`) 
 
 ## Miscellaneous
 
