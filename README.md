@@ -11,6 +11,7 @@
 ##### - Extra
 - Password generator
 - Secure notes
+- -Password strength checker
 ##### - Log
 - View/search/modify logs
 
