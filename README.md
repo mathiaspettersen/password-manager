@@ -34,7 +34,7 @@ Default password is `passman`, and can be changed once logged in (`6. Extra -> 4
 
 `welcome.db` contains the initial login password.
 
-To open one of the databases, run `sqlite3` and then `.open <dbnamme.db>`. TYpe `.tables`to view tables and `select * from <table name>;` to view contents.
+To open one of the databases, run `sqlite3` and then `.open <dbnamme.db>`. Type `.tables` to view tables and `select * from <table name>;` to view contents.
 
 ## Screenshots
 
