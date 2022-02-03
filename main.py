@@ -18,29 +18,18 @@ try:
 except:
 	pass
 
-
-
-#view_entry_log = " [ViewEntry] "
-#search_item_log = " [SearchItem] "
-#new_entry_log = " [NewEntry] "
-#update_entry_log = " [UpdateEntry] "
-#delete_entry_log = " [DeleteEntry] "
-
-
 # Password database
-connection = sqlite3.connect("pass.db") # CHANGE THIS
-# print("\n[+] Successfully connected to database")
+connection = sqlite3.connect("pass.db")
+
 cursor = connection.cursor()
-# print("[+] Cursor set up successfully")
 
 # Logging database
-connection_log = sqlite3.connect("log.db") # CHANGE THIS
+connection_log = sqlite3.connect("log.db")
 	
 cursor_log = connection_log.cursor()
 
 
 # Create password database:
-
 def create_db():
 
 	try:
@@ -84,9 +73,7 @@ def fetch_data():
 		print("Date added: " + i[5])
 		print("\n----------------------------------\n")
 
-
 	time.sleep(1.5)
-
 
 	now = datetime.datetime.now()
 	date_logs = now.strftime("[" + "%d-%m-%Y|%H:%M:%S" + "]")
@@ -105,7 +92,6 @@ def fetch_data():
 
 	else:
 		main_menu()
-
 
 # 2
 # Search for data
@@ -162,7 +148,6 @@ def search_for_data():
 
 	else:
 		main_menu()
-
 
 # Enter email and password
 # 3
@@ -223,7 +208,6 @@ def enter_details():
 		time.sleep(2)
 		main_menu()
 
-
 # 4
 # Update data
 def update_data():
@@ -265,7 +249,6 @@ def update_data():
 
 	note_input = input("Note: ")
 
-
 	cursor.execute("UPDATE passwords SET service = ?, url_website = ?, email = ?, password = ?, note = ?, date_added = ? WHERE service LIKE ?", (service_input, url_input, email_input, password_input, note_input, date_input, service_chosen))
 	connection.commit()
 
@@ -277,7 +260,6 @@ def update_data():
 	time.sleep(1)
 
 	main_menu()
-
 
 
 # 5
@@ -308,8 +290,6 @@ def delete_data():
 		cursor.execute("SELECT * FROM passwords WHERE email like ?", ('%'+delete_input+'%',))
 		table = cursor.fetchall()
 
-	
-
 	for i in table:
 
 		if i[0] == int:
@@ -325,8 +305,6 @@ def delete_data():
 	delete_input2 = input("\nConfirm the service to be deleted: ")	
 
 	delete_confirm = input("\n[?] Are you sure you want to delete " + ">>[ " + delete_input2 + " ]<<? [Y/n]: ")
-
-	
 
 	if delete_confirm == "Y" or delete_confirm == "y":
 
@@ -389,7 +367,6 @@ def password_generator():
 
 	punctuation_input = input("[?] Do you want punctuation included? [Y/n]: ")
 
-
 	if punctuation_input == "Y" or punctuation_input == "y":
 
 		# Create random string based on length
@@ -402,7 +379,6 @@ def password_generator():
 		now = datetime.datetime.now()
 		date_logs = now.strftime("[" + "%d-%m-%Y|%H:%M:%S" + "]")
 
-		
 		message_log = "-- Generated a password of " + "{ " + pass_length + " }" + "characters with punctuation."
 
 		cursor_log.execute("INSERT INTO logs (date_added, category, log_message) VALUES (?, ?, ?)", (entry_date, category_log, message_log))
@@ -452,13 +428,12 @@ def password_generator():
 # Secure notes
 def secure_notes():
 
-	connection = sqlite3.connect("secnot.db") # CHANGE THIS
+	connection = sqlite3.connect("secnot.db")
 	
 	cursor = connection.cursor()
 	
 	# id, header, message, date_added
 
-	
 	print("\n----------------")
 	print("- Secure notes -")
 	print("----------------\n")
@@ -510,8 +485,6 @@ def secure_notes():
 				print("\n[-] No notes found.")
 				time.sleep(1)
 				secure_notes()
-
-
 
 	elif choice == "2":
 
@@ -599,7 +572,6 @@ def password_strength():
 		time.sleep(1)
 		main_menu()
 
-
 	if (len(password_input)<8):
 		print("\n[-] Password too short.")
 		time.sleep(2)
@@ -655,7 +627,6 @@ def change_master():
 
 	for i in table:
 		
-
 		if current_pass == str(i[0]):
 
 			new_pass = input("\nNew password: ")
@@ -678,15 +649,12 @@ def change_master():
 				time.sleep(1)
 				change_master()
 			
-
-
 		else:
 			print("\n[-] Wrong password entered. Try again.")
 			time.sleep(2)
 			change_master()
 
 
-	
 def extra_material():
 
 	print("---------")
@@ -845,7 +813,6 @@ def log_proram():
 		log_program()
 
 
-
 # Main Menu
 def main_menu():
 
@@ -934,7 +901,6 @@ def welcome():
 
 		if password == correct_pass:
 			main_menu()
-
 
 # Run program
 welcome()
