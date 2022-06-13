@@ -19,15 +19,21 @@
 
 To download program, use:
 
-`git clone https://github.com/mathiaspettersen/password-manager`
+```
+git clone https://github.com/mathiaspettersen/password-manager
+```
 
 Enter folder: 
 
-`cd password-manager`
+```
+cd password-manager
+```
 
 Run:
 
-`python3 main.py`
+```
+python3 main.py
+```
 
 Default password is `passman`, and can be changed once logged in (`6. Extra -> 4. Change master password`) 
 
