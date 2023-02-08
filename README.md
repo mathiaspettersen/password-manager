@@ -19,19 +19,19 @@
 
 To download program, use:
 
-```
+```python
 git clone https://github.com/mathiaspettersen/password-manager
 ```
 
 Enter folder: 
 
-```
+```python
 cd password-manager
 ```
 
 Run:
 
-```
+```python
 python3 main.py
 ```
 
